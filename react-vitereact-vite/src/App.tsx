@@ -20,7 +20,9 @@ const app = () => {
 */
 
 import {Header} from './components/header'
+import { Photo } from './components/photo';
 
+/*
 function Form(){
   return (
     <form >
@@ -33,14 +35,17 @@ function Form(){
     </form>
   )
 }
-
+*/
 function app(){
   return(
     <div>
-      <Header/>
-      ola,mundo olaaa 
+      <Header title="minha props funciona"/>
+      <Header title="outra parada "/>
 
-      <Form/>
+      ola,mundo olaaa 
+ 
+    <Photo children="" url="http://www.google.com.br/google.jpg" legend='Google'/>
+      
     </div>
   )
 }

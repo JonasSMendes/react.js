@@ -1,7 +1,11 @@
-export const Header = ()=>{
+type props = {
+  title?: string;
+}
+
+export const Header = ({title}:props)=>{
     return (
       <header>
-        <h1>ola moço</h1>
+        <h1>{title}</h1>
         <hr />
       </header>
     )
