@@ -1,3 +1,4 @@
+/*
 const app = () => {
 
   let n1:number = 345
@@ -16,5 +17,31 @@ const app = () => {
     </div>
   )
 }
+*/
 
+import {Header} from './components/header'
+
+function Form(){
+  return (
+    <form >
+      <label htmlFor="">Nome completo</label>
+      <input type="text" required placeholder='Nome:' />
+      <label htmlFor="">Email</label>
+      <input type="email" name="" id="" required placeholder='Email' />
+      <label htmlFor="">password</label>
+      <input type="password" name="" id="" placeholder='senha:' required />
+    </form>
+  )
+}
+
+function app(){
+  return(
+    <div>
+      <Header/>
+      ola,mundo olaaa 
+
+      <Form/>
+    </div>
+  )
+}
 export default app;
