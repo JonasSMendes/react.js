@@ -36,6 +36,7 @@ function Form(){
   )
 }
 */
+/*
 function app(){
   return(
     <div>
@@ -49,4 +50,69 @@ function app(){
     </div>
   )
 }
+*/
+
+import { useState } from 'react';
+/*
+function app(){
+
+const [numero, setNumero] = useState(0);
+const [name, setName] = useState('jonas')
+
+  const buttonClick = ()=>{
+    setNumero( numero + 10)
+  }
+
+  return(
+    <div>
+      o nome é: {numero}
+     <button onClick={buttonClick}>clique aqui</button>
+      
+    </div>
+  )
+}
+*/
+/*
+function app(){
+
+  const [numero, setNumero] = useState(0);
+  const [name, setName] = useState('jonas')
+  
+    const buttonClick = ()=>{
+      setNumero( numero + 1)
+    }
+
+    const buttonClickMenos = () =>{
+      if(numero > 0){
+        setNumero( numero - 1)
+      }
+    }
+    return(
+      <div>
+        o nome é: {numero}
+       <button onClick={buttonClick}>+</button>
+       <button onClick={buttonClickMenos}>-</button>
+        
+      </div>
+    )
+  }
+  */
+ 
+function app(){
+
+const [name , setName] = useState('')
+
+
+const handleInput = (e:React.ChangeEvent<HTMLInputElement>) =>{
+  setName(e.target.value)
+}
+    return(
+      <div>
+        Nome:
+       <input type="text" name="" id="" value={name}  onChange={handleInput}/>
+       <hr />
+       seu nome é:{name}
+      </div>
+    )
+  }
 export default app;
