@@ -97,14 +97,14 @@ function app(){
     )
   }
   */
- 
+ /*
 function app(){
 
 const [name , setName] = useState('')
 
 
 const handleInput = (e:React.ChangeEvent<HTMLInputElement>) =>{
-  setName(e.target.value)
+  setName  (e.target.value)
 }
     return(
       <div>
@@ -115,4 +115,17 @@ const handleInput = (e:React.ChangeEvent<HTMLInputElement>) =>{
       </div>
     )
   }
+  */
+ import { Botao } from './components/botão';
+  function app(){
+
+
+    
+  return(
+    <div>
+      <Botao text="click aqui"/>
+    </div>
+)
+    }
+       
 export default app;
