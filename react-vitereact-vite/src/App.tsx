@@ -118,6 +118,7 @@ const handleInput = (e:React.ChangeEvent<HTMLInputElement>) =>{
   */
  import { Botao } from './components/botão';
  import { Input } from './components/input';
+ /*
   function app(){
 
     let textodobotao = 'clique aqui va'
@@ -137,5 +138,59 @@ const handleInput = (e:React.ChangeEvent<HTMLInputElement>) =>{
     
 )
     }
-       
+    */
+   
+  import { Pessoa } from './components/pessoa';
+/*
+    function app(){
+
+      let list = [
+          {name:'jonas',idade: 20},
+          {name:'maria',idade: 23},
+          {name:'pedro',idade: 36},
+          {name:'Daisy',idade: 27},
+          {name:'simone',idade: 29}
+        ]
+
+      
+
+    return(
+      <div> 
+        <h2> lista de presença</h2>
+        <ul>
+          {list.map((i, index)=>(
+            <Pessoa key={index} data={i}/>
+          ))}
+        </ul>
+      </div>
+      
+  )
+      }
+       */
+
+  function app(){
+
+    const [show, setshow] = useState(false)
+
+    const handleclick = ()=>{
+      setshow(!show)
+    }
+
+    return(
+      <div>
+        <button onClick={handleclick}>{show ? 'và simbora rapaz' : 'venha cá rapaz'}</button>
+
+        {show === true && 
+
+        <div>
+          me chamou? 
+          <br />
+          <img src="https://onlineseries.com.br/wp-content/uploads/2021/04/Shrek-filmes-Netflix-1024x535.jpg" width={400} alt="" />
+        </div>
+
+        }
+
+      </div>
+    )
+}
 export default app;
