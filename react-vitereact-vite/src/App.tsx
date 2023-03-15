@@ -117,14 +117,24 @@ const handleInput = (e:React.ChangeEvent<HTMLInputElement>) =>{
   }
   */
  import { Botao } from './components/botão';
+ import { Input } from './components/input';
   function app(){
 
+    let textodobotao = 'clique aqui va'
+    let  textoInput = 'aqui es eu'
 
-    
+    const funcaopai = (txt:string)=>{
+      alert('frase do app: '+ txt)
+  }
+
   return(
     <div>
-      <Botao text="click aqui"/>
+      <Botao text={textodobotao} clickFn={funcaopai}/>
+
+      <Input text={textoInput} />
+      
     </div>
+    
 )
     }
        

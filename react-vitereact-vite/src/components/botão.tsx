@@ -1,9 +1,15 @@
 type props ={
     text: string
+    clickFn: (txt:string) => void
 }
 
-export const Botao = ({text}:props)=>{
+export const Botao = ({clickFn, text}:props)=>{
+
+   const handleClick = ()=>{
+      clickFn('frase')
+   }
+
     return(
-        <button>{text}</button>
+        <button onClick={handleClick} >{text}</button>
     )
 }
