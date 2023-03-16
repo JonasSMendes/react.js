@@ -13,3 +13,4 @@ export const Botao = ({clickFn, text}:props)=>{
         <button onClick={handleClick} >{text}</button>
     )
 }
+

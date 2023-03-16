@@ -167,7 +167,7 @@ const handleInput = (e:React.ChangeEvent<HTMLInputElement>) =>{
   )
       }
        */
-
+/*
   function app(){
 
     const [show, setshow] = useState(false)
@@ -193,4 +193,42 @@ const handleInput = (e:React.ChangeEvent<HTMLInputElement>) =>{
       </div>
     )
 }
+
+*/
+/*
+function app(){
+
+  const [click, setclick] = useState(false)
+ 
+ const handleClick = ()=>{
+   setclick(!click)
+ }
+ 
+   return(
+     <div>
+       <button
+       onClick={handleClick}
+        style={{
+         backgroundColor: 'red', 
+         color: 'white'
+       }}
+        >clique aqui</button>
+     </div>
+   )
+ }
+ */
+import './style.css';
+
+ function app(){
+
+ const handleClick = ()=>{
+
+ }
+
+   return(
+     <div>
+       <button className='botao' onClick={handleClick}>clique aqui</button>
+     </div>
+   )
+ }
 export default app;
