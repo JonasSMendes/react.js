@@ -19,8 +19,8 @@ const app = () => {
 }
 */
 
-import {Header} from './components/header'
-import { Photo } from './components/photo';
+//import {Header} from './components/header'
+//import { Photo } from './components/photo';
 
 /*
 function Form(){
@@ -52,7 +52,7 @@ function app(){
 }
 */
 
-import { useState } from 'react';
+//import { useState } from 'react';
 /*
 function app(){
 
@@ -117,7 +117,7 @@ const handleInput = (e:React.ChangeEvent<HTMLInputElement>) =>{
   }
   */
 
- import { Input } from './components/input';
+// import { Input } from './components/input';
  /*
   function app(){
 
@@ -140,7 +140,7 @@ const handleInput = (e:React.ChangeEvent<HTMLInputElement>) =>{
     }
     */
    
-  import { Pessoa } from './components/pessoa';
+ // import { Pessoa } from './components/pessoa';
 /*
     function app(){
 
@@ -220,19 +220,19 @@ function app(){
 
 //import { Botao } from './components/botao';
 
-import styled from 'styled-components';
+//import styled from 'styled-components';
 
 
 
 //import { Botao } from './styled-components/botao';
 //import { Container } from './styled-components/Container';
 
-import { Container, Botao } from './components/styled-components/appstyled';
+//import { Container, Botao } from './components/styled-components/appstyled';
 
-import * as C from './components/styled-components/appstyled'
+//import * as C from './components/styled-components/appstyled'
 
 
-
+/*
  function app(){
    return(
     <C.Container bgcolor='#ccc'>
@@ -244,6 +244,19 @@ import * as C from './components/styled-components/appstyled'
       <C.Botao bg='blue' small> botão pequeno</C.Botao>
 
     </C.Container>
+   )
+ };
+
+ */
+
+ 
+ function app(){
+   return(
+      <div>
+         <h1 className="text-3xl font-bold underline">
+    Hello world!
+  </h1>
+      </div>
    )
  };
 export default app;

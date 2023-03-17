@@ -11,7 +11,7 @@ type Botaoprops = {
   }
 
 export const Container = styled.div<container>`
-
+    max-width: 600px;
     background-color: ${props => props.bgcolor};
     color: white;
     padding: 20px;
@@ -29,6 +29,16 @@ export const Container = styled.div<container>`
 
         &:hover{
             color: red;
+        }
+    }
+
+    @media( max-width: 500px) {
+        background-color:green;
+        flex-direction: column;
+
+
+        span{
+            color: blue;
         }
     }
 `;
