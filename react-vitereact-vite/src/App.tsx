@@ -228,15 +228,21 @@ import styled from 'styled-components';
 //import { Container } from './styled-components/Container';
 
 import { Container, Botao } from './components/styled-components/appstyled';
+
 import * as C from './components/styled-components/appstyled'
+
 
 
  function app(){
    return(
-    <C.Container>
-      ola pessoa do gera
+    <C.Container bgcolor='#ccc'>
+     <span>ola pessoa do gera</span> 
 
-      <C.Botao> ola marcia</C.Botao>
+     <a href="" className='link'> uhuhuhu</a>
+
+      <C.Botao bg='green'> botão grande</C.Botao>
+      <C.Botao bg='blue' small> botão pequeno</C.Botao>
+
     </C.Container>
    )
  };
