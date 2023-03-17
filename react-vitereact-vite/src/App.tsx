@@ -116,7 +116,7 @@ const handleInput = (e:React.ChangeEvent<HTMLInputElement>) =>{
     )
   }
   */
- import { Botao } from './components/botão';
+
  import { Input } from './components/input';
  /*
   function app(){
@@ -217,17 +217,14 @@ function app(){
    )
  }
  */
-import './style.css';
+
+import { Botao } from './components/botao';
 
  function app(){
 
- const handleClick = ()=>{
-
- }
-
    return(
      <div>
-       <button className='botao' onClick={handleClick}>clique aqui</button>
+       <Botao/>
      </div>
    )
  }
