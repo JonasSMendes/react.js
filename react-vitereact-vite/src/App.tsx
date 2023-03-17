@@ -218,14 +218,26 @@ function app(){
  }
  */
 
-import { Botao } from './components/botao';
+//import { Botao } from './components/botao';
+
+import styled from 'styled-components';
+
+
+
+//import { Botao } from './styled-components/botao';
+//import { Container } from './styled-components/Container';
+
+import { Container, Botao } from './components/styled-components/appstyled';
+import * as C from './components/styled-components/appstyled'
+
 
  function app(){
-
    return(
-     <div>
-       <Botao/>
-     </div>
+    <C.Container>
+      ola pessoa do gera
+
+      <C.Botao> ola marcia</C.Botao>
+    </C.Container>
    )
- }
+ };
 export default app;
