@@ -252,10 +252,13 @@ function app(){
  
  function app(){
    return(
-      <div>
-         <h1 className="text-3xl font-bold underline">
-    Hello world!
-  </h1>
+      <div className="items-center bg-blue-500 flex justify-center flex-col md:flex-row md:justify-between md:pr-2 pl-2" >
+         <h1 className=" p-2 text-red-300 text-2xl font-bold">Hello world!</h1>
+<div>
+        <input type="text" placeholder="digite algo" className="border-transparent bg-white p-2  rounded focus:ring-2 outline-none"/>
+        <button className="pl-2 bg-green-400 p-2 rounded hover:bg-green-600 font-bold text-white hover:text-white">Pesquisar</button>
+</div>
+         <button className=" hover:text-white mt-3 mb-2 p-1 rounded font-bold"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/VisualEditor_-_Icon_-_Menu.svg/2048px-VisualEditor_-_Icon_-_Menu.svg.png" alt="" width={50} /></button>
       </div>
    )
  };
