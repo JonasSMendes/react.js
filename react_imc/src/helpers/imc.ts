@@ -19,8 +19,11 @@ export const CalcImc = (heigth:number, weigth:number)=>{
 
     for(let i in levels){
         if(imc >= levels[i].imc[0] && imc <= levels[i].imc[1]){
-            levels[i].yourimc= parseFloat( imc.toFixed(2))
-            return levels[i]
+            let levelscopy:Level = {...levels[i]}
+
+
+            levelscopy.yourimc= parseFloat( imc.toFixed(2))
+            return levelscopy
         }
     }
 
