@@ -249,7 +249,7 @@ function app(){
 
  */
 
- 
+ /*
  function app(){
    return(
       <div className="items-center bg-blue-500 flex justify-center flex-col md:flex-row md:justify-between md:pr-2 pl-2" >
@@ -262,4 +262,49 @@ function app(){
       </div>
    )
  };
+ */
+
+ /*
+import { ChangeEvent, useEffect, useState } from "react";
+
+
+ const app =()=>{
+
+  const [name, setname] = useState('')
+  const [lastname, setlasname] = useState('')
+  const [fullname, setfullname] = useState('')
+  
+
+  const handlenamechange =(e:ChangeEvent<HTMLInputElement>)=>{
+    setname(e.target.value)
+  }
+
+  const handlelastnamechange =(e:ChangeEvent<HTMLInputElement>)=>{
+    setlasname (e.target.value)
+  }
+
+  useEffect(()=>{
+    setfullname(`${name} ${lastname}`)
+  },[name,lastname])
+
+
+  return(
+    <div className="flex flex-col">
+        <input className="" type="text" placeholder="digite seu nome" value={name} onChange={handlenamechange} />
+        <input className="" type="text" placeholder="digite seu Sobrenome" value={lastname} onChange={handlelastnamechange} />
+
+        <p>Nome Completo: {fullname}</p>
+    </div>
+  )
+ }
+ */
+
+ const app =()=>{
+  return(
+    <div>
+      
+    </div>
+  )
+ }
+
 export default app;
