@@ -298,13 +298,101 @@ import { ChangeEvent, useEffect, useState } from "react";
   )
  }
  */
+/*
+import { useState } from "react";
+
+type Movie = {
+  titulo:string
+  avatar:string
+}
 
  const app =()=>{
+
+  const [filmes, setfilme] = useState<Movie[]>([])
+
+const handleloadmovies = () =>{
+  fetch('https://api.b7web.com.br/cinema/')
+  .then((response)=>{
+    return response.json();
+  })
+  .then((json)=>{
+    setfilme(json);
+  })
+}
+
+
   return(
     <div>
-      
+      <button className="bg-blue-400 block p-2 rounded " onClick={handleloadmovies}>carregar filmes</button>
+      total de filmes:{filmes.length}
+
+
+      <div className="grid grid-cols-6 gap-3">
+
+     {filmes.map((item, index)=>(
+
+      <div key={index} >
+        <img src={item.avatar} className="w-30 block" />
+
+        {item.titulo}
+      </div>
+
+     ))}
+      </div>
     </div>
   )
  }
+*/
+
+import { useEffect, useState } from "react";
+
+type poke = {
+  name:string
+  url:string
+  abilities:string
+  data:string
+  avatar:string
+}
+
+const app = () =>{
+
+  const [pokemon, setpokemon] = useState<poke[]>([])
+
+
+  useEffect(()=>{
+    handlepokemon()
+  },[])
+
+  const handlepokemon = () =>{
+
+    const Url = 'https://pokeapi.co/api/v2/pokemon?limit=50' 
+
+    fetch(Url)
+    .then((response)=>{
+      return response.json()
+    })
+    .then((json)=>{
+      console.log(json)
+      setpokemon(json.data.results)
+    })
+    .catch((erro)=>{
+      console.log("erro: " + erro)
+    })
+  }
+
+  return(
+   <div>
+      {pokemon.map((item, index) => (
+        <div key={index}>
+            esse é o pokemon:{item.name}
+        </div>
+      ))}
+    </div>  
+  )
+}
 
 export default app;
+
+//https://pokeapi.co/api/v2/pokemon/
+
+//https://api.b7web.com.br/cinema/
