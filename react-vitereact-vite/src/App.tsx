@@ -298,8 +298,8 @@ import { ChangeEvent, useEffect, useState } from "react";
   )
  }
  */
-/*
-import { useState } from "react";
+
+import { useEffect, useState } from "react";
 
 type Movie = {
   titulo:string
@@ -310,40 +310,67 @@ type Movie = {
 
   const [filmes, setfilme] = useState<Movie[]>([])
 
-const handleloadmovies = () =>{
+  useEffect(() =>
+   {handleloadmovies()},
+  [])
+
+  const [loading, setLoading] = useState(false)
+
+const handleloadmovies = async () =>{
+
+  try{
+  setLoading(true)
+  let response = await fetch('https://api.b7web.com.br/cinema/')
+  let json = await response.json();
+  setLoading(false)
+  setfilme(json);
+}catch(error){
+  setLoading(false);
+  <div>tente mais tarde</div>
+}
+  /*
   fetch('https://api.b7web.com.br/cinema/')
   .then((response)=>{
     return response.json();
   })
   .then((json)=>{
     setfilme(json);
-  })
+  });
+*/
 }
-
-
   return(
     <div>
-      <button className="bg-blue-400 block p-2 rounded " onClick={handleloadmovies}>carregar filmes</button>
-      total de filmes:{filmes.length}
+        {loading && 
+          <img src="https://olaargentina.com/wp-content/uploads/2019/11/loading-gif-transparent-10.gif" width={50} alt="" />
+        }
+        {!loading && filmes.length > 0 &&
+        <div>total de filmes:{filmes.length}</div>
+        }
+      
+    
+        <div className="grid grid-cols-6 gap-3">
 
+        {filmes.map((item, index)=>(
 
-      <div className="grid grid-cols-6 gap-3">
-
-     {filmes.map((item, index)=>(
-
-      <div key={index} >
+        <div key={index} >
         <img src={item.avatar} className="w-30 block" />
 
         {item.titulo}
-      </div>
+        </div>
 
-     ))}
-      </div>
+        ))}
+        </div>
+
+
+        {!loading && filmes.length === 0 &&
+        
+          <div>tenta mais tarde novamente.</div>
+        }
     </div>
   )
  }
-*/
 
+/*
 import { useEffect, useState } from "react";
 
 type poke = {
@@ -390,7 +417,16 @@ const app = () =>{
     </div>  
   )
 }
+*/
+/*
+const app = () => {
+  return(
+    <div>
 
+    </div>
+  )
+}
+*/
 export default app;
 
 //https://pokeapi.co/api/v2/pokemon/
