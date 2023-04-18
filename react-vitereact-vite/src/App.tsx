@@ -19,6 +19,8 @@ const app = () => {
 }
 */
 
+import { ChangeEvent, useEffect, useState } from "react";
+
 //import {Header} from './components/header'
 //import { Photo } from './components/photo';
 
@@ -298,7 +300,7 @@ import { ChangeEvent, useEffect, useState } from "react";
   )
  }
  */
-
+/*
 import { useEffect, useState } from "react";
 
 type Movie = {
@@ -337,6 +339,7 @@ const handleloadmovies = async () =>{
     setfilme(json);
   });
 */
+/*
 }
   return(
     <div>
@@ -369,7 +372,7 @@ const handleloadmovies = async () =>{
     </div>
   )
  }
-
+*/
 /*
 import { useEffect, useState } from "react";
 
@@ -418,17 +421,171 @@ const app = () =>{
   )
 }
 */
-/*
+
+import { Post } from "./types/post";
+import { Input } from "./components/input";
+
 const app = () => {
+  
+
+  const [Post, setPost] = useState<Post[]>([]) 
+  const [loading, setloading] = useState(false)
+
+  const [addtitle, setaddtitle] = useState('');
+  const [addbody, setaddbody] = useState('');
+
+  useEffect(()=>{
+    loadingPost();
+  },[])
+
+
+  const loadingPost = async ()=>{
+    setloading(true);
+    let response = await fetch('https://jsonplaceholder.typicode.com/posts')
+    let json = await response.json()
+    setloading(false)
+    setPost(json)
+  }
+
+  const handleaddclick = async ()=>{
+    if(addtitle && addbody){
+
+      let response = await fetch('https://jsonplaceholder.typicode.com/posts',{
+          method: 'POST',
+          body: JSON.stringify({
+            title:addtitle,
+            body: addbody,
+            userId: 1
+          }),
+          headers: {
+            'Content-type':'application/json'
+          }
+      });
+      let json = await response.json()
+      
+      if(json.id){
+        alert('post adicioando com sucesso')
+      }else{
+        alert('deu algum erro')
+      }
+
+
+    }else{
+      alert ('digite seu post')
+    }
+  }
+
+  const handleaddtitle =(e:ChangeEvent<HTMLInputElement>)=>{
+    setaddtitle(e.target.value)
+  }
+  const handleaddbody =(e:ChangeEvent<HTMLTextAreaElement>)=>{
+    setaddbody(e.target.value)
+  }
+
+
+  return(
+    <div className="p-5">
+        {loading && 
+          <img src="https://olaargentina.com/wp-content/uploads/2019/11/loading-gif-transparent-10.gif" width={50} alt="" />
+        }
+
+        <fieldset className="border-2 mb-3 p-3">
+        <legend>adicionando novo post</legend>
+
+         <input value={addtitle} onChange={handleaddtitle} className="block border" type="text" placeholder="Digite um titulo"/>
+         <textarea value={addbody} onChange={handleaddbody} className="block border" name="" id=""></textarea>
+         <button onClick={handleaddclick} className="block border"> adiconar</button>
+
+        </fieldset>
+
+
+        {!loading && Post.length > 0 &&
+        <div>total de posts:{Post.length}</div>
+        }
+      
+    
+        <div>
+
+        {Post.map((item, index)=>(
+
+        <div key={index}>
+          <br /> <br />
+        <h4 className="font-bold" >{item.title}</h4> 
+        <small>#{item.id} -usuario- {item.userId}</small>
+        <p>{item.body}</p>  
+
+        </div>
+
+        ))}
+        </div>
+        {!loading && Post.length === 0 &&
+          <div>tenta mais tarde novamente, não a posts.</div>
+        }
+    </div>
+  )
+}
+
+
+/*
+
+import { PostPiece } from "./types/episodios";
+
+const app = () =>{
+
+  const [loading, setloading] = useState(false)
+  const [Episodios, setEpisodios] = useState<PostPiece[]>([])
+
+  useEffect(()=>{
+    loadingPostPiece()
+  },[])
+
+  const loadingPostPiece = async () =>{
+    let response = await fetch('https://api.api-onepiece.com/episodes');
+    let json = await response.json()
+    setEpisodios(json);
+
+  }
+
+
   return(
     <div>
+        {loading && 
+          <img src="https://olaargentina.com/wp-content/uploads/2019/11/loading-gif-transparent-10.gif" width={50} alt="" />
+        }
+        {!loading && Episodios.length > 0 &&
+        <div className="p-5">total de posts:{Episodios.length}</div>
+        }
+      
+    
+        <div>
 
+        {Episodios.map((item, index)=>(
+
+        <div key={index} className="p-5" >
+          <br /> <br />
+        <h4 className="font-bold" >{item.title}</h4> 
+        <small> - data de lançamento - {item.release_date} - saga - {item.saga_id} -episodio- {item.number}</small>
+        <p>{item.description}</p>  
+
+        </div>
+
+        ))}
+        </div>
+        
+        {!loading && Episodios.length === 0 &&
+          <div>tenta mais tarde novamente, não a episodios aqui ainda.</div>
+        }
     </div>
   )
 }
 */
+
 export default app;
 
 //https://pokeapi.co/api/v2/pokemon/
 
 //https://api.b7web.com.br/cinema/
+
+//https://jsonplaceholder.typicode.com/posts
+
+//https://api.api-onepiece.com/episodes
