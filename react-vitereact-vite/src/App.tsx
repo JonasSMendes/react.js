@@ -421,32 +421,31 @@ const app = () =>{
   )
 }
 */
-
+/*
 import { Post } from "./types/post";
-import { Input } from "./components/input";
+import { Input } from "./components/componentes sem uso/input";
+import { PostForm } from "./components/postForm";
+import { PostItem } from "./components/PostItem";
+import { Api } from "./api";
 
 const app = () => {
-  
 
   const [Post, setPost] = useState<Post[]>([]) 
   const [loading, setloading] = useState(false)
 
-  const [addtitle, setaddtitle] = useState('');
-  const [addbody, setaddbody] = useState('');
-
   useEffect(()=>{
-    loadingPost();
-  },[])
-
+     loadingPost();
+},[])
 
   const loadingPost = async ()=>{
+
     setloading(true);
-    let response = await fetch('https://jsonplaceholder.typicode.com/posts')
-    let json = await response.json()
+    let json = await Api.getAllPost();
     setloading(false)
     setPost(json)
-  }
 
+  }
+/*
   const handleaddclick = async ()=>{
     if(addtitle && addbody){
 
@@ -475,49 +474,37 @@ const app = () => {
     }
   }
 
-  const handleaddtitle =(e:ChangeEvent<HTMLInputElement>)=>{
-    setaddtitle(e.target.value)
-  }
-  const handleaddbody =(e:ChangeEvent<HTMLTextAreaElement>)=>{
-    setaddbody(e.target.value)
-  }
+  */
+/*
+  const handleAddPost = async (title:string, body:string)=>{
 
+      let json = await Api.addNewPost(title,body, 1)
+      if(json.id){
+      alert('post adicioando com sucesso')
+      }else{
+      alert('deu algum erro')
+      } 
+
+  }
 
   return(
     <div className="p-5">
         {loading && 
-          <img src="https://olaargentina.com/wp-content/uploads/2019/11/loading-gif-transparent-10.gif" width={50} alt="" />
-        }
-
-        <fieldset className="border-2 mb-3 p-3">
-        <legend>adicionando novo post</legend>
-
-         <input value={addtitle} onChange={handleaddtitle} className="block border" type="text" placeholder="Digite um titulo"/>
-         <textarea value={addbody} onChange={handleaddbody} className="block border" name="" id=""></textarea>
-         <button onClick={handleaddclick} className="block border"> adiconar</button>
-
-        </fieldset>
-
+        <img src="https://olaargentina.com/wp-content/uploads/2019/11/loading-gif-transparent-10.gif"
+        width={50} alt="" />}
+      
+        <PostForm onAdd={handleAddPost}/>
 
         {!loading && Post.length > 0 &&
         <div>total de posts:{Post.length}</div>
         }
-      
-    
+
         <div>
-
         {Post.map((item, index)=>(
-
-        <div key={index}>
-          <br /> <br />
-        <h4 className="font-bold" >{item.title}</h4> 
-        <small>#{item.id} -usuario- {item.userId}</small>
-        <p>{item.body}</p>  
-
-        </div>
-
+            <PostItem data={item}/>
         ))}
         </div>
+
         {!loading && Post.length === 0 &&
           <div>tenta mais tarde novamente, não a posts.</div>
         }
@@ -579,6 +566,16 @@ const app = () =>{
   )
 }
 */
+
+
+
+const app = () =>{
+  return(
+    <div>
+      
+    </div>
+  )
+}
 
 export default app;
 
