@@ -566,16 +566,33 @@ const app = () =>{
   )
 }
 */
+/*
+import { useContagem } from "./reducers/contagem";
 
+  const app = () => {
 
-
-const app = () =>{
+    const [state, dispatch] = useContagem();
+  
   return(
-    <div>
-      
+    <div className="p-5">
+
+      contagem: {state.count}
+
+      <button className="p-3" onClick={()=>dispatch({type:'ADD'})}>Adicionar</button>
+      <button className="p-3" onClick={()=>dispatch({type:'DEL'})}>Remover</button>
+      <button className="p-3" onClick={()=>dispatch({type:'RESET'})}>Resetar</button>
     </div>
   )
 }
+*/
+const app = () =>{
+  return(
+    <div className="p-5">
+        
+    </div>
+  )
+}
+
 
 export default app;
 
