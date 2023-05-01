@@ -6,6 +6,7 @@ import ResttartIcon from "./svgs/restart.svg"
 import {useEffect, useState} from "react"
 import { GridItemType } from "./types/gridItemType"
 import { items } from "./data/items" 
+import { GridItem } from "./components/griditem"
 
 const App = () => {
 
@@ -37,12 +38,12 @@ useEffect(()=>{
         }
     // 2.2 preencher o grid
         for(let w = 0; w < 2; w++){
-          for(let y = 0; y < (items.length);y++){
+          for(let i = 0; i < items.length; i++){
               let pos = -1;
-            while(pos < 0 || tempGrid[pos].item !== null){
+            while (pos < 0 || tempGrid[pos].item !== null){
                 pos = Math.floor(Math.random() * (items.length * 2));
             }
-                tempGrid[pos].item = y;
+                tempGrid[pos].item = i;
           }
         }
     //2.3 jogar no states
@@ -53,6 +54,10 @@ useEffect(()=>{
 
   }
 
+
+  const handleItemClick = (index:number)=>{
+
+  }
 
 
   return(
@@ -71,7 +76,13 @@ useEffect(()=>{
       </C.info>
       <C.gridArea>
           <C.grid>
-
+              {gridItems.map((item, index)=>(
+                <GridItem 
+                  key={index}
+                  item={item}
+                  onClick={()=>handleItemClick(index)}
+                />
+              ))}
           </C.grid>
       </C.gridArea>
     </C.Container>

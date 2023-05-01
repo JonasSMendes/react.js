@@ -588,10 +588,25 @@ import { useContagem } from "./reducers/contagem";
 
 
 
+
+import { Routelist } from "./routeList";
+
+
 const app = () =>{
   return(
-    <div className="p-5">
-        
+    <div className="p-4">
+        <header>
+        <h1>titulo do site</h1>
+        </header>
+        <br />
+        <hr />
+        <div className="py-4">
+            <Routelist/>
+        </div>
+        <hr />
+        <footer>
+          todos os direitos reservados
+        </footer>
     </div>
   )
 }
