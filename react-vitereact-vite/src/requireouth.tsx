@@ -6,7 +6,7 @@ type Props = {
 }
 
 export const RequireOuth = ({ children }: Props) =>{
-    const isAuth = false;
+    const isAuth = true;
 
     if(isAuth){
         return children
