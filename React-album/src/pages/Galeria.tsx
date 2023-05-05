@@ -31,7 +31,7 @@ export const Galeria = () =>{
         </div>
         <div>
             {photos.map((item,index)=>(
-                <Link to= './PhotoFull'>
+                <Link to= '/photoFull'>
                     <PhotoLists data={item} key={index}/>
                 </Link>
             ))}
