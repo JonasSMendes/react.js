@@ -588,7 +588,7 @@ import { useContagem } from "./reducers/contagem";
 
 
 
-
+/*
 import { Routelist } from "./routeList";
 
 
@@ -621,3 +621,51 @@ export default app;
 //https://jsonplaceholder.typicode.com/posts
 
 //https://api.api-onepiece.com/episodes
+
+*/
+
+import { useReducer } from "react";
+
+type reducerState= {
+  dado: number;
+}
+type reducerAction = {
+  type: string;
+}
+
+const initialState: reducerState = { dado: 0 };
+const reducer = (state:reducerState, action:reducerAction) =>{
+  
+  switch(action.type){
+    case 'ADD':
+      return {...state, dado: state.dado + Math.floor( Math.random() * 20)} 
+    break;
+    case 'DEL':
+      return {...state, dado: state.dado - Math.floor( Math.random() * 20)}
+    break;
+    case 'RESET':
+      return initialState;  
+    break
+  }
+    
+  return state
+}
+
+
+const app = () =>{
+  const [state, dispatch] = useReducer(reducer, initialState);
+
+  return(
+    <div>
+      conatgem de dados: {state.dado}
+        <br />
+
+        <button className="p-3" onClick={()=>dispatch({type:'ADD'})}>adicionar</button>
+        <button className="p-3" onClick={()=>dispatch({type:'DEL'})}>retirar</button>
+        <button className="p-3" onClick={()=>dispatch({type:'RESET'})}>resetar</button>
+    </div>
+
+  )
+}
+
+export default app;
