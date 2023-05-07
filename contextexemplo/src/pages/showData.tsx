@@ -5,11 +5,19 @@ import { Context } from '../contexts/context'
 
 export const ShowData = () => {
 
-const {name, Age } = useContext(Context)
+const {state, dispatch} = useContext(Context)
 
     return(
         <div>
-            Showdata criada de {name} que tem { Age} anos.
+           <h3>Tela ShowDAta</h3>
+            {state.user.name && 
+                <>
+                meu nome é: {state.user.name} <br />
+                e tenho : {state.user.age} <br />
+                e atualmente eu vivo em: {state.user.city}
+                </>
+            }
+            {!state.user.name && 'não ha informaçôes.'}
                 <br />
             <Link to='/'>voltar para singup</Link>
         </div>

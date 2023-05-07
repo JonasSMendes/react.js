@@ -8,9 +8,9 @@ import { reducerActionType } from "../types/ReducerActionType"
 }
 
 export const userInitialState: Usertype = {
-    name: 'jonas' ,
-    age: 90,
-    city: 'recife'
+    name: '' ,
+    age: 0,
+    city: ''
 }
 
 export const userReducer = (state:Usertype, action:reducerActionType ) =>{
