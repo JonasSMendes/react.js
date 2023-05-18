@@ -25,6 +25,8 @@ export const PageArea = styled.div`
                 font-size: 14px;
                 font-weight: bold;
                 color: #ccc ;
+                margin-left: 10px;
+                margin-right: 5px;
             }
             .area-input{
                 flex: 1;

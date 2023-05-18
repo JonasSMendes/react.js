@@ -2,11 +2,16 @@ import React from "react";
 import {HeaderArea} from './styled'
 import {Link} from 'react-router-dom'
 
-import { IsLogged } from "../../../helpers/authHandler";
+import { IsLogged, dologout } from "../../../helpers/authHandler";
 
 const Header = () =>{
 
     let logged = IsLogged();
+
+    const handleLogout= () =>{
+        dologout();
+        window.location.href = '/';
+    }
 
     return(
         <HeaderArea>
@@ -26,7 +31,7 @@ const Header = () =>{
                                 <Link to='/my-account'>Minha Conta</Link>
                             </li>
                             <li>
-                                <Link to='/logo-out'>Sair</Link>
+                               <button onClick={handleLogout}>sair</button>
                             </li>
 
                             <li>
@@ -40,7 +45,7 @@ const Header = () =>{
                                 <Link to='/singin'>Login</Link>
                             </li>
                             <li>
-                                <Link to='/singup'>Cadastrar</Link>
+                                <Link to='/singUp'>Cadastrar</Link>
                             </li>
 
                             <li>
