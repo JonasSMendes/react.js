@@ -7,7 +7,9 @@ import { Container, Menu, PageBody } from './appStyled';
 import HomeScreen from './pages/HomeScreen';
 import Tela2Screen from './pages/Tela2Screen';
 
+import PriveteRoute from './components/PriveteRoute';
 import MenuItem from './components/menuItem';
+import Cart from './components/Cart';
 
 
 
@@ -27,11 +29,23 @@ export default () => {
                         <Route exact path="/">
                             <HomeScreen />
                         </Route>
+                        <PriveteRoute exact path="/orders" >
+                            <div>
+                                TelA de pedidos
+                            </div>
+                        </PriveteRoute>
+                        <PriveteRoute exact path="/profile" >
+                            <div>
+                                TelA de perfil
+                            </div>
+                        </PriveteRoute>
                         <Route path="/tela2/:nome">
                             <Tela2Screen />
                         </Route>
                     </Switch>
                 </PageBody>
+
+                <Cart/>
 
             </Container>
         </BrowserRouter>

@@ -12,11 +12,12 @@ export const Menu = styled.div`
     width: 80px;
     justify-content: center;
     align-items: center;
-   
+   flex-direction: column;
 `;
 
 export const PageBody = styled.div`
     display: flex;
-    background-color: blue;
+    background-image: url('/assets/bg.png');
+    background-color: #00980d;
     flex: 1;
 `;
