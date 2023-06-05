@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import { useSelector } from 'react-redux';
 
+
 import { Container, Menu, PageBody } from './appStyled';
 
 import HomeScreen from './pages/HomeScreen';
@@ -46,6 +47,8 @@ export default () => {
                 </PageBody>
 
                 <Cart/>
+
+                
 
             </Container>
         </BrowserRouter>
