@@ -11,7 +11,6 @@ import {Container,
     
 } from './styled';
 
-
 import api from '../../api';
 
 
@@ -19,24 +18,38 @@ import Header from '../../components/Header';
 import CategoryItem from '../../components/CategoryItem';
 import ProductsItem from '../../components/ProductsItem';
 
+import Modal from '../../components/Modal';
+
+let searchtimer = null;
+
 export default () => {
     const history = useHistory();
     const [headerSearch, setHeaderSearch] = useState('');
     const [categories,setCategories] = useState([]);
     const [products, setProducts] = useState([]);
-    const [totalPages, setTotalPages] =useState(0);
+    const [totalPages, setTotalPages] = useState(0);
+
+    const [modalstatus, setModalStatus] = useState(true);
 
     const [activeCat, setActiveCat] = useState(0);
-    const [activePage, setActivePage] =useState(0);
+    const [activePage, setActivePage] = useState(1);
+    const [activeSearch, setActiveSearch] = useState('');
 
     const getProducts = async () =>{
-        const prods = await api.getProducts();
+        const prods = await api.getProducts(activeCat, activePage,activeSearch);
         if(prods.error == ''){
             setProducts(prods.result.data);
             setTotalPages(prods.result.pages);
-            setActivePage(prods.result.pages);
+            setActivePage(prods.result.page);
         }
     }
+
+    useEffect(()=>{
+        clearTimeout(searchtimer);
+        searchtimer = setTimeout(()=>{
+                setActiveSearch(headerSearch);
+        },2000)
+    },[headerSearch])
 
     useEffect(()=>{
         const getCategoris = async () =>{
@@ -51,7 +64,7 @@ export default () => {
     useEffect(()=>{
         setProducts([]);
         getProducts();
-    },[activeCat, activePage])
+    },[activeCat, activePage, activeSearch])
 
     return (
         <Container>
@@ -118,6 +131,10 @@ export default () => {
                     
                 </ProductsPaginationArea>
             }
+
+            <Modal status={modalstatus} setStatus={setModalStatus}>
+                Conteudo do modal
+            </Modal>
 
         </Container>
     );
