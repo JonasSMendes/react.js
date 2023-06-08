@@ -19,6 +19,7 @@ import CategoryItem from '../../components/CategoryItem';
 import ProductsItem from '../../components/ProductsItem';
 
 import Modal from '../../components/Modal';
+import ModalProducts from '../../components/ModalProducts';
 
 let searchtimer = null;
 
@@ -29,7 +30,8 @@ export default () => {
     const [products, setProducts] = useState([]);
     const [totalPages, setTotalPages] = useState(0);
 
-    const [modalstatus, setModalStatus] = useState(true);
+    const [modalstatus, setModalStatus] = useState(false);
+    const [modalData, setModalData] = useState({});
 
     const [activeCat, setActiveCat] = useState(0);
     const [activePage, setActivePage] = useState(1);
@@ -66,6 +68,12 @@ export default () => {
         getProducts();
     },[activeCat, activePage, activeSearch])
 
+
+    const handleProductClick = (data) =>{
+        setModalData(data);
+        setModalStatus(true);
+    }
+
     return (
         <Container>
             <Header search={headerSearch} onSearch={setHeaderSearch} />
@@ -101,7 +109,9 @@ export default () => {
                 <ProductsList>
                     {products.map( (item, index) =>(
                         <ProductsItem   key={index}
-                                        data={item} />
+                                        data={item}
+                                        onClick={handleProductClick}
+                                        />
                     ) )}
                 </ProductsList>
             </ProductsArea>
@@ -133,7 +143,7 @@ export default () => {
             }
 
             <Modal status={modalstatus} setStatus={setModalStatus}>
-                Conteudo do modal
+                <ModalProducts data={modalData}  setStatus={setModalStatus}/>
             </Modal>
 
         </Container>
