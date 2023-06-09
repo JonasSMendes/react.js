@@ -48,8 +48,6 @@ export default () => {
 
                 <Cart/>
 
-                
-
             </Container>
         </BrowserRouter>
     );

@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react'
+import { useDispatch } from 'react-redux';
 import {Container,
         ProductsArea,
         ProductsPhoto,
@@ -18,7 +19,7 @@ import {Container,
 
 export default ({ data, setStatus }) =>{
 
-
+    const dispatch = useDispatch();
     const [qt, setQt] = useState(1);
 
     useEffect(()=>{
@@ -37,6 +38,21 @@ export default ({ data, setStatus }) =>{
     }
     const handlePlusQt = () =>{
         setQt(qt + 1)
+    }
+
+    const handleAddToCart = () =>{
+        //juntar as informaçoes e mandar isso pro reducer
+        //fechar o modal
+
+        dispatch({
+            type:'ADD_PRODUCT',
+            payload:{
+                data,
+                qt
+            }
+        })
+
+        setStatus(false)
     }
 
 
@@ -70,7 +86,7 @@ export default ({ data, setStatus }) =>{
 
             <ProductsButtons>
                 <Button onClick={handleCancelButton} small={true}> Cancelar </Button>
-                <Button> Adicinar ao carrinho </Button>
+                <Button onClick={handleAddToCart}> Adicinar ao carrinho </Button>
             </ProductsButtons>
         </Container>
     )

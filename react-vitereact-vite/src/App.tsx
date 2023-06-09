@@ -624,6 +624,7 @@ export default app;
 
 */
 
+/*
 import { useReducer } from "react";
 
 type reducerState= {
@@ -666,6 +667,15 @@ const app = () =>{
     </div>
 
   )
+}
+*/
+const app = () => {
+
+return(
+  <div>
+      
+  </div>
+)
 }
 
 export default app;
