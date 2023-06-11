@@ -83,8 +83,8 @@ header{
 
 
 
-
+/* area de chat, conversa*/
 
 .content-area{
-
+ flex: 1;
 }
