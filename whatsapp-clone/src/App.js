@@ -14,10 +14,10 @@ import SearchIcon from '@mui/icons-material/Search';
 
 export default () => {
 
-  const [chatlist, setChatlist] = useState([ 
-    {Id: 1 , title:'jiji'},
-    {Id: 2 , title:'jiji'},
-    {Id: 3 , title:'jiji'},
+  const [chatlist, setChatlist] = useState([
+    { chatId: 1, title: 'jiji', Image: 'https://i.pinimg.com/originals/e7/63/0c/e7630cb0fcfade92e4d98834053741e1.png' },
+    { chatId: 2, title: 'jiji', Image: 'https://i.pinimg.com/originals/e7/63/0c/e7630cb0fcfade92e4d98834053741e1.png' },
+    { chatId: 3, title: 'jiji', Image: 'https://i.pinimg.com/originals/e7/63/0c/e7630cb0fcfade92e4d98834053741e1.png' },
   ]);
 
   const [activeChat, setActiveChat] = useState({});
@@ -47,25 +47,26 @@ export default () => {
           </div>
         </div>
 
-        <div className='chat-list'>
-          {chatlist.map((item, key)=>(
-            <ChatlistItem 
-                key={key}
-                onCLick={()=>setActiveChat(chatlist[key])}
+        <div className="chat-list">
+          {chatlist.map((item, key) => (
+            <ChatlistItem
+              key={key}
+              onClick={() => setActiveChat(chatlist[key])}
             />
           ))}
         </div>
 
       </div>
       <div className='content-area'>
-
-        {activeChat.Id !== undefined &&
+        
+        {activeChat.chatId !== undefined &&
           <ChatWindow />
         }
-        {activeChat.Id === undefined &&
-          <ChatIntro/>
+
+        {activeChat.chatId === undefined &&
+          <ChatIntro />
         }
-        
+
       </div>
     </div>
   );
