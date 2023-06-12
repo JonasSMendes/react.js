@@ -48,10 +48,12 @@ export default () => {
         </div>
 
         <div className="chat-list">
-          {chatlist.map((item, key) => (
+          {chatlist.map((item, index) => (
             <ChatlistItem
-              key={key}
-              onClick={() => setActiveChat(chatlist[key])}
+              key={index}
+              data={item}
+              active={activeChat.chatId === chatlist[index].chatId}
+              Click={() => setActiveChat(chatlist[index])}
             />
           ))}
         </div>
