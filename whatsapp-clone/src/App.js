@@ -4,6 +4,7 @@ import './App.css';
 import ChatlistItem from './componts/ChatlistItem';
 import ChatIntro from './componts/ChatIntro';
 import ChatWindow from './componts/ChatWindow';
+import NewChat from './componts/NewChat';
 
 
 import DonutLargeIcon from '@mui/icons-material/DonutLarge';
@@ -21,17 +22,34 @@ export default () => {
   ]);
 
   const [activeChat, setActiveChat] = useState({});
+  const [user, setUser] = useState({
+    id: 1234,
+    avatar:'https://i.pinimg.com/originals/e7/63/0c/e7630cb0fcfade92e4d98834053741e1.png',
+    name: 'kiki bruxeira'
+  })
+
+  const [showNewChat, setShowNewChat] = useState(false);
+
+  const handleNewchat = () =>{
+    setShowNewChat(true)
+  }
 
   return (
     <div className="App">
       <div className='side-bar'>
+        <NewChat 
+          chatlist={chatlist}
+          user={user}
+          show={showNewChat}
+          setShow={setShowNewChat}
+        />
         <header>
-          <img className='header-avater' src='https://i.pinimg.com/originals/e7/63/0c/e7630cb0fcfade92e4d98834053741e1.png' alt='' />
+          <img className='header-avater' src={user.avatar} alt='' />
           <div className='header-button'>
             <div className='header-btn'>
               <DonutLargeIcon style={{ color: '#919191' }} />
             </div>
-            <div className='header-btn'>
+            <div onClick={handleNewchat} className='header-btn'>
               <ChatIcon style={{ color: '#919191' }} />
             </div>
             <div className='header-btn'>
@@ -62,7 +80,9 @@ export default () => {
       <div className='content-area'>
         
         {activeChat.chatId !== undefined &&
-          <ChatWindow />
+          <ChatWindow
+            user={user}
+          />
         }
 
         {activeChat.chatId === undefined &&
