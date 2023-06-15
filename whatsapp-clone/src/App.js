@@ -5,7 +5,7 @@ import ChatlistItem from './componts/ChatlistItem';
 import ChatIntro from './componts/ChatIntro';
 import ChatWindow from './componts/ChatWindow';
 import NewChat from './componts/NewChat';
-
+import Login from './componts/Login';
 
 import DonutLargeIcon from '@mui/icons-material/DonutLarge';
 import ChatIcon from '@mui/icons-material/Chat';
@@ -22,12 +22,22 @@ export default () => {
   ]);
 
   const [activeChat, setActiveChat] = useState({});
-  const [user, setUser] = useState({
-    id: 1234,
-    avatar:'https://i.pinimg.com/originals/e7/63/0c/e7630cb0fcfade92e4d98834053741e1.png',
-    name: 'kiki bruxeira'
-  })
+  const [user, setUser] = useState(null)
+///
+  const handleLoginData = async (u) =>{
+    
+    let newUser = {
+      id: u.uid,
+      name: u.displayName,
+      avatar: u.photoURL
+    }
+    setUser(newUser);
+  }
 
+  if(user === null){
+    return (<Login Receive={handleLoginData} />)
+  }
+////
   const [showNewChat, setShowNewChat] = useState(false);
 
   const handleNewchat = () =>{
