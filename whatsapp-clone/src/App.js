@@ -12,6 +12,9 @@ import ChatIcon from '@mui/icons-material/Chat';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import SearchIcon from '@mui/icons-material/Search';
 
+import {signInWithPopup} from 'firebase/auth'
+import { Authentication , provider } from "./firebaseConfig";
+
 
 export default () => {
 
@@ -22,10 +25,26 @@ export default () => {
   ]);
 
   const [activeChat, setActiveChat] = useState({});
-  const [user, setUser] = useState(null)
-///
+
+//// firebase 
+  const [user, setUser] = useState('')
+
+  const handleFacebookLogin = () =>{
+    signInWithPopup( Authentication,provider)
+    .then((res)=>{
+         console.log(res);
+    })
+    .catch((err)=>{
+         console.log(err);
+    })
+
+   // handleLoginData();
+ }
+  const handlelogout = () =>{
+  setUser(null)
+ }
+/*
   const handleLoginData = async (u) =>{
-    
     let newUser = {
       id: u.uid,
       name: u.displayName,
@@ -33,11 +52,19 @@ export default () => {
     }
     setUser(newUser);
   }
+  */
 
   if(user === null){
-    return (<Login Receive={handleLoginData} />)
+    return (<Login
+            Click={handleFacebookLogin}
+            user={user}
+            logout={handlelogout}
+            />)
   }
 ////
+
+
+
   const [showNewChat, setShowNewChat] = useState(false);
 
   const handleNewchat = () =>{

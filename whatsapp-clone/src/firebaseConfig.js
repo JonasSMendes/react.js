@@ -1,8 +1,6 @@
 import { initializeApp } from "firebase/app";
 import { getAuth,FacebookAuthProvider } from "firebase/auth";
 
-
-
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
@@ -14,10 +12,10 @@ const firebaseConfig = {
   appId: "1:753907613126:web:024a34a0eba9c854c506c7",
   measurementId: "G-S8RKHYJH9J"
 };
-
 // Initialize Firebase
+
 const app = initializeApp(firebaseConfig);
-const Auth = getAuth(app)
+const Authentication = getAuth(app);
 const provider = new FacebookAuthProvider();
 
-export {Auth, provider};
+export {Authentication, provider};
