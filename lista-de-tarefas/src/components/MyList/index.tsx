@@ -17,7 +17,7 @@ export default ({i}:Props) =>{
              checked={isChecked}
              onChange={e => setIsChecked(e.target.checked)}
             />
-            <label>{i.name} - {i.done.toString()}</label>
+            <label>{i.name}</label>
         </C.Container>
     )
 }
