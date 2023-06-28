@@ -4,11 +4,13 @@
   
 }
 body {
-  background-color: #4158D0;
-  background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
-  height: 100vh;
+  background-color: #0093E9;
+  background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);
+  background-position: center;  
+  background-size: cover;
+  height: 100%;
 }
-.container{
+.horas{
   height: 100%;
   margin: auto;
   display: flex;
@@ -22,4 +24,21 @@ h1{
 }
 p{
   font-size: 25px;
+}
+
+
+.notas-emoji{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 30px;
+  margin-top: 30px;
+}
+
+.tabela{
+  width: 100%;
+  height: 100vh;
+  background-color: #333;
+  color: #fff;
 }
