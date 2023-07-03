@@ -14,7 +14,7 @@ export const Tabela =()=>{
                 <td>final grade</td>
                 </tr>
             {students.map((item,index)=>(
-                <tr>
+                <tr key={index}>
                     <td>
                         <div className="avatar-name">
                             <img src={item.avatar}/>

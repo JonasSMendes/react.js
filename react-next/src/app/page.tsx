@@ -1,10 +1,19 @@
 import { Notas } from "@/components/notas";
 import { Tabela } from "@/components/tabela de notas/tabela";
+import { Testes } from "@/components/testes/testes";
+import { Galerias } from "@/components/galeria";
+
+import { Galeria } from "@/data/galeria";
+
 
 const Page = () =>{
-
     const horas = new Date().getHours();
     const minutos = new Date().getMinutes();
+
+
+    const handleOpenphoto = (id: number) =>{
+        
+    }
 
     return(
         <div className="container">
@@ -29,12 +38,26 @@ const Page = () =>{
 
             <div className="notas-emoji">
             <Notas
-             notas={5}
+             notas={3.2}
             />
             </div>
 
             <div className="tabela">
                 <Tabela />
+            </div>
+
+            <div className="testes">
+                <Testes/>
+            </div>
+
+            <div className="galeria">
+                <h1>fotos de planetas</h1>
+                <div className="img-grid"> 
+                {Galeria.map(i=>(
+                    <Galerias
+                    url={i}/>
+                ))}
+                </div>
             </div>
         </div>
     )

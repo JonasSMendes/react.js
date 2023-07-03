@@ -4,8 +4,6 @@
   
 }
 body {
-  background-color: #0093E9;
-  background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);
   background-position: center;  
   background-size: cover;
   height: 100%;
@@ -41,4 +39,39 @@ p{
   height: 100vh;
   background-color: #333;
   color: #fff;
+}
+.testes{
+  width: 100%;
+  height: 500px;
+  background-color: #333;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.galeria{
+  width: 100%;
+  height: 100vh;
+  background-color: #333;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  
+}
+
+.img-grid{
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  grid-row-gap: 10px;
+  
+  gap: 4;
+}
+
+.img-galeria{
+  width: 200px;
+  height: 150px;
+  border-radius: 0;
 }
