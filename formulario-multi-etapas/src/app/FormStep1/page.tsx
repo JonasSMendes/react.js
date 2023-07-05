@@ -41,11 +41,21 @@ export default function FormStep1 (){
                     autoFocus
                     value={state.name}
                     onChange={handleNameChange}
+                    required
                     />
                 </label>
 
-                <Link href='/FormStep2'>Proximo</Link>
+                {state.name === '' &&
+                    <span>Digite seu nome...</span>
+                }
 
+                { state.name !== '' && state.name.length <= 3 &&
+                    <span>tem que haver no minimo 4 letras</span>
+                }
+
+                {state.name !== '' &&   state.name.length >= 4 &&
+                <Link href='/FormStep2'>Proximo</Link>
+                }
             </S.Container>
         </Theme>
            

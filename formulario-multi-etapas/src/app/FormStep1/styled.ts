@@ -36,6 +36,12 @@ export const Container  = styled.div`
         }
     }
 
+    span{
+        font-size: 12px;
+        color: red;
+        margin-left: 20px;
+    }
+
     a{
         display: block;
         width: 160px;
