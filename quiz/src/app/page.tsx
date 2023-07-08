@@ -29,7 +29,7 @@ export default function Home() {
                 />
             </div>
             <div className='p-5 text-center border-1 border-gray-300'>
-              {currentCount + 1} de {question.length} perguntas {question.length === 1? '' : 's'}
+              {currentCount + 1} de {question.length} pergunta{question.length === 1? '' : 's'}
             </div>
         </div>
     </main>
