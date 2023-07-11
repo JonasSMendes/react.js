@@ -1,24 +1,35 @@
-import React from 'react';
-import logo from './logo.svg';
+import { useReducer, useState } from 'react';
 import './App.css';
+import { VideoPlayer } from './components/video';
+import { ListReducer } from './reducers/listReducer';
+
+export type Item = {
+  id: number
+  text: string
+  done: boolean
+}
 
 function App() {
+
+  const [list , dispatch] = useReducer(ListReducer, [])
+
+  const handleAddClick = () =>{
+    dispatch({
+      type:'add',
+      payload:{
+        text: 'novo item'
+      } 
+    })
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to jonas.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+        {list.map((i, index)=>(
+          i.text
+        ))}
+
+      <button onClick={handleAddClick}>adicionar</button>
     </div>
   );
 }
