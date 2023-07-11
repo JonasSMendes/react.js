@@ -47,7 +47,7 @@ export const ListReducer = (list: Item[], action: ListAction) =>{
                 return i
             });
         case 'toggle':
-           return list.map( (t) =>{
+           return list.map(t => {
                 if(t.id === action.payload.id) t.done = !t.done
                 return t;
               }); 
@@ -57,7 +57,5 @@ export const ListReducer = (list: Item[], action: ListAction) =>{
             return list           
     }
     
-
-
     return list
 }
