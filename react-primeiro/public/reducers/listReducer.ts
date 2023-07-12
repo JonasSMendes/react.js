@@ -1,3 +1,4 @@
+/*
 import { Item } from "../App"
 
 
@@ -45,17 +46,21 @@ export const ListReducer = (list: Item[], action: ListAction) =>{
                 if(i.id === action.payload.id) i.text = action.payload.newText
 
                 return i
-            });
+            })
         case 'toggle':
            return list.map(t => {
+
                 if(t.id === action.payload.id) t.done = !t.done
+
                 return t;
-              }); 
+              })
         case 'remove':  
            return list.filter(t => t.id !== action.payload.id)
+           
         default:
             return list           
     }
     
     return list
 }
+*/

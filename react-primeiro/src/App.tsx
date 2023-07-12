@@ -1,14 +1,26 @@
 import {  useReducer, useState } from 'react';
 import './App.css';
-import { ListReducer } from './reducers/listReducer';
 
+import { Header } from './components/header.tsx/Header';
+import { CountContext, CountInitialData } from './contexts/CountContext';
+/*
 export type Item = {
   id: number
   text: string
   done: boolean
 }
-
+*/
 function App() {
+
+  return(
+    <div>
+      <CountContext.Provider value={CountInitialData}>
+        <Header/>
+      </CountContext.Provider>
+    </div>
+  )
+  /*
+
 
   const [list , dispatch] = useReducer(ListReducer, [])
   const [add, setAdd] = useState('')
@@ -16,12 +28,17 @@ function App() {
   const [inputEdit, setImputEdit] = useState(false)
 
   const handleAddClick = () =>{
+
+    if(add !== ''){
     dispatch({
       type:'add',
       payload:{
         text: add
       } 
     })
+  }else{
+    alert('o campo está vazio')
+  }
 
     setAdd('')
   }
@@ -95,6 +112,7 @@ function App() {
       
     </div>
   );
+  */
 }
 
 export default App;
