@@ -6,6 +6,7 @@ import { PostContext } from "../../contexts/PostContext"
 export const PostsHome = () =>{
 
     const PostCtx = useContext(PostContext)
+    
     const [title, setTitle] = useState('')
     const [body , setBody] = useState('')
     
