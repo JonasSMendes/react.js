@@ -3,10 +3,16 @@ import { CountContext } from "../../contexts/CountContext"
 
 export const OnlineUser = () => {
 
-    const Count = useContext(CountContext);
+    const CountCtx = useContext(CountContext);
 
+    const handleClick = () => {
+        CountCtx?.setOnlineCount(CountCtx.onlineCount + 1)
+    }
 
     return(
-       <p>online: {Count}</p>
+        <>
+       <p >online:{CountCtx?.onlineCount}</p>
+       <button onClick={handleClick}>+</button>
+       </>
     )
 }

@@ -1,13 +1,12 @@
-import { OnlineUser } from "./OnlineUser"
+import { useContext } from "react"
+import { YourName } from "../../contexts/NameContext"
 
-export const Header = () => {
+export const Header = () => {   
     return(
         <header>
             <h1>
-                titulo da pagina
+                Posts
             </h1>
-            
-            <OnlineUser/>
         </header>
     )
 }

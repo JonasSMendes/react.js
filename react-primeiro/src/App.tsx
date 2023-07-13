@@ -2,22 +2,20 @@ import {  useReducer, useState } from 'react';
 import './App.css';
 
 import { Header } from './components/header.tsx/Header';
-import { CountContext, CountInitialData } from './contexts/CountContext';
-/*
-export type Item = {
-  id: number
-  text: string
-  done: boolean
-}
-*/
+import { CountProvider } from './contexts/CountContext';
+import { NameProvider } from './contexts/NameContext';
+import { Footer } from './components/footer/footer';
+import { PostsHome } from './components/PostHome/PostsHome';
+import { PostProvider } from './contexts/PostContext';
+
 function App() {
 
   return(
-    <div>
-      <CountContext.Provider value={CountInitialData}>
+      <PostProvider>
         <Header/>
-      </CountContext.Provider>
-    </div>
+        <PostsHome/>
+        <Footer />
+      </PostProvider>
   )
   /*
 

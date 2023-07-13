@@ -1,5 +1,5 @@
-/*
-import { Item } from "../App"
+
+import { Item } from "../types/TypeList";
 
 
 type AddAction = {
@@ -63,4 +63,3 @@ export const ListReducer = (list: Item[], action: ListAction) =>{
     
     return list
 }
-*/
