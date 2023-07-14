@@ -1,4 +1,4 @@
-import { ReactNode, createContext, useReducer, useState } from "react";
+import { ReactNode, createContext, useContext, useReducer, useState } from "react";
 import { PostType } from "../types/TypePost";
 import { PostReducers } from "../reducers/postReducer";
 import { ListReducer } from "../reducers/listReducer";
@@ -45,3 +45,5 @@ export const PostProvider = ({children}:props) => {
         </>
     )
 }
+
+export const usePosts = () => useContext(PostContext);
