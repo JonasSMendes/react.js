@@ -1,8 +1,28 @@
+import { ThemeProvider } from "@/contexts/ThemeContext";
+import { Container } from "../components/Container";
+import { Button } from "@/components/Button";
 
 export default function Home() {
+
+  const handleButton = () => {
+    
+  }
+
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      
-    </main>
+    <ThemeProvider>
+      <Container>
+        <header className="py-5">
+            <h1 className="text-3xl ">
+                titulo da pagina
+            </h1>
+        </header>
+        <section>
+          <p className="my-5">
+            conteudo da pagina
+          </p>
+          <Button label="Click aqui" click={handleButton} />
+        </section>
+      </Container>
+    </ThemeProvider>
   )
 }
