@@ -1,7 +1,5 @@
-'use client'
-
-import { Theme, useTheme } from "@/contexts/ThemeContext"
-import { ReactNode, useContext } from "react"
+import { useTheme } from "@/contexts/ThemeContext"
+import { ReactNode} from "react"
 
 type props = {
     children: ReactNode
@@ -9,18 +7,22 @@ type props = {
 
 export const Container = ({children}: props) => {
 
-    const ThemeCtx = useTheme()
+    const ThemeCtx = useTheme();
 
     return(
         <div
             className={`w-full h-screen
-                ${ThemeCtx?.theme === 'dark' ? 'bg-black text-white' : 'bg-white text-black' }
+            bg-white text-black
+            dark:bg-black dark:text-white
             `}
         >
-            <div className="container mx-outo">
-            {ThemeCtx?.theme}
-            {children}
+            <div 
+                className="container mx-auto"
+            >
+                tema:{ThemeCtx?.theme}
+                {children}
             </div>
+            
         </div>
     )
 }

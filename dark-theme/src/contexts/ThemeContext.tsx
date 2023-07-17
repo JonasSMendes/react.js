@@ -1,36 +1,38 @@
-'use client'
+import { ReactNode, createContext, useEffect, useState, useContext } from "react";
 
-import { ReactNode, createContext, useContext, useEffect, useState } from "react";
-import { ThemeType } from "@/types/themeType";
+  const STORAGE_KEY = 'themeContextKey';
 
-const STOREG_KEY = 'themeContextKey'
+type ThemeContext ={
+    theme: string
+    setTheme: (neTheme: string) => void
+  }
 
-type ThemeDarkMode = {
-    theme: string;
-    setTheme:(newTheme: string) => void
-    
+export const ThemeContext = createContext<ThemeContext | null>(null)
+
+type props = {
+    children: ReactNode
 }
 
-export const Theme = createContext<ThemeDarkMode | null>(null)
+export const ThemeProvider = ({children}: props) => {
 
-
-type props = { children: ReactNode} 
-
-export const ThemeProvider = ({children}: props) =>{
-
-    const[theme, setTheme] = useState(
-        localStorage.getItem(STOREG_KEY) || 'ligth'
-    );
+    const [theme, setTheme] = useState(
+        localStorage.getItem(STORAGE_KEY) || 'light'
+    )
 
     useEffect(()=>{
-        localStorage.setItem(STOREG_KEY, theme)
+        if(theme === 'dark'){
+            document.documentElement.classList.add('dark')
+        }else{
+            document.documentElement.classList.remove('dark')
+        }
+        localStorage.setItem(STORAGE_KEY, theme)
     },[theme])
 
-return(
-    <Theme.Provider value={{theme, setTheme}}>
-        {children}
-    </Theme.Provider>
-)
+    return(
+        <ThemeContext.Provider value={{theme, setTheme}}>
+            {children}
+        </ThemeContext.Provider>
+    )
 }
-
-export const useTheme = () => useContext(Theme)
+     
+export const useTheme = () => useContext(ThemeContext)
